@@ -6,7 +6,6 @@ class vendedor:
         self.nombre = nombre
         self.apellidos = apellidos
         self.edad = edad
-        self.output = ""
         self.verify()
 
     def verify(self):
