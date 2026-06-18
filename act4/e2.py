@@ -16,24 +16,18 @@ class vendedor:
 
 class ventana:
     def __init__(self):
-        self.root = tk.Tk()
         self.output = ""
-        self.root.title("Controlador de Excepciones")
-        self.root.protocol("WM_DELETE_WINDOW", self.root.destroy);
-        self.buttond1 = tk.Button(self.root, text="Caso 1 (Controlador Excepciones)", command=self.d1)
-        self.buttond1.grid(row=0,column=0)
-        self.root.mainloop()
+        self.d1_win = tk.Tk()
+        self.d1_win.protocol("WM_DELETE_WINDOW", self.d1_win.destroy);
 
-    def d1(self):
-        d1_win = Toplevel(self.root)
-        labeln = tk.Label(d1_win, text="Ingrese el nombre:")
-        self.entryn = Entry(d1_win)
-        labels = tk.Label(d1_win, text="Ingrese los apellidos:")
-        self.entrys = Entry(d1_win)
-        labele = tk.Label(d1_win, text="Ingrese la edad:")
-        self.entrye = Entry(d1_win)
-        button = Button(d1_win, text="Ingresar", command=self.d1_case)
-        self.label = tk.Label(d1_win)
+        labeln = tk.Label(self.d1_win, text="Ingrese el nombre:")
+        self.entryn = Entry(self.d1_win)
+        labels = tk.Label(self.d1_win, text="Ingrese los apellidos:")
+        self.entrys = Entry(self.d1_win)
+        labele = tk.Label(self.d1_win, text="Ingrese la edad:")
+        self.entrye = Entry(self.d1_win)
+        button = Button(self.d1_win, text="Ingresar", command=self.d1_case)
+        self.label = tk.Label(self.d1_win)
 
         labeln.grid(row=0, column=0)
         self.entryn.grid(row=0, column=1)
@@ -43,6 +37,7 @@ class ventana:
         self.entrye.grid(row=2, column=1)
         button.grid(row=3, column=0)
         self.label.grid(row=4, column=0)
+        self.d1_win.mainloop()
 
     def d1_case(self):
         n, s, e = self.entryn.get(), self.entrys.get(), self.entrye.get()
@@ -58,4 +53,3 @@ class ventana:
 
 if __name__ == "__main__":
     win = ventana()
-    print("hello")

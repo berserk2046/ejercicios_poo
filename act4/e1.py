@@ -3,16 +3,10 @@ from tkinter import *
 
 class ventana:
     def __init__(self):
-        self.root = tk.Tk()
-        self.root.title("Selection")
-        self.root.protocol("WM_DELETE_WINDOW", self.cerrar_ventana);
-        self.buttond1 = tk.Button(self.root, text="Caso 1 (Division)", command=self.d1)
-        self.buttond1.grid(row=0,column=0)
-        self.root.mainloop()
 
-    def d1(self):
-        self.d1_window = Toplevel(self.root)
-        self.d1_window.title("Division")
+        self.d1_window = tk.Tk()
+        self.d1_window.title("Excepciones 1")
+        self.d1_window.protocol("WM_DELETE_WINDOW", self.cerrar_ventana);
         self.labelc = tk.Label(self.d1_window, text="Cociente:")
         self.cociente = Entry(self.d1_window)
         self.labeln = tk.Label(self.d1_window, text="Numerador:")
@@ -26,6 +20,7 @@ class ventana:
         self.labelc.grid(row=1, column=0)
         self.cociente.grid(row=1, column=1)
         self.button.grid(row=2, column=0)
+        self.d1_window.mainloop()
 
     def d1_case(self):
         c, n = self.cociente.get(), self.numerador.get()
@@ -52,7 +47,7 @@ class ventana:
         self.label.config(text=output)
 
     def cerrar_ventana(self):
-        self.root.destroy()
+        self.d1_window.destroy()
 
 if __name__ == "__main__":
     win = ventana()
